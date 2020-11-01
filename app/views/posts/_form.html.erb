@@ -1,0 +1,33 @@
+<%= form_with model: post, local: true, html: { 'hx-target': :this, 'hx-swap': :outerHTML } do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, { 'hx-post': posts_path } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, { 'hx-post': posts_path } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :live %>
+    <%= form.check_box :live %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit", disabled: post.invalid? %>
+  </div>
+<% end %>

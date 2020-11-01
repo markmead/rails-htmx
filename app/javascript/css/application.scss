@@ -1,0 +1,19 @@
+.field_with_errors {
+  input,
+  textarea {
+    border: 2px solid red;
+  }
+}
+
+.field_without_errors {
+  input,
+  textarea {
+    border: 2px solid green;
+  }
+}
+
+.live {
+  background: green;
+  color: white;
+  padding: 2px;
+}
