@@ -1,0 +1,13 @@
+<tr>
+  <td class="post-id">
+    <%= label_tag "post_ids_#{post.id}", post.id %>
+    <%= check_box_tag "post_ids[]", post.id, nil, id: "post_ids_#{post.id}" %>
+  </td>
+  <td><%= post.title %></td>
+  <td><%= post.body %></td>
+  <td <%= html_attributes(class: :live) if post.live? %>>
+    <%= post.live? %>
+  </td>
+  <td><%= link_to 'Edit', edit_post_path(post) %></td>
+  <td><%= link_to 'Destroy', post, method: :delete %></td>
+</tr>

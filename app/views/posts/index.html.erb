@@ -2,30 +2,27 @@
 
 <h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Live?</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div hx-include="#live_status" hx-target="#tbody">
+  <%= link_to 'Live', live_posts_path, remote: true, method: :put, 'hx-put': live_posts_path %>
+  <%= link_to 'Draft', draft_posts_path, remote: true, method: :put, 'hx-put': draft_posts_path %>
+</div>
 
-  <tbody>
-    <% @posts.each do |post| %>
+<form id="live_status">
+  <table>
+    <thead>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td <%= html_attributes(class: "live") if post.live? %>>
-          <%= post.live? %>
-        </td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete %></td>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Live?</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody id="tbody">
+      <%= render @posts %>
+    </tbody>
+  </table>
+</form>
 
 <br>
 

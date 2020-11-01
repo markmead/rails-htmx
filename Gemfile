@@ -13,6 +13,7 @@ gem "better_html"
 
 group :development, :test do
   gem 'faker'
+  gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 

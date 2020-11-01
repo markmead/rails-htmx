@@ -17,3 +17,28 @@
   color: white;
   padding: 2px;
 }
+
+.htmx-settling {
+  tr {
+    transition: 1s ease-in;
+  }
+
+  td.draft {
+    background: red;
+    color: white;
+  }
+
+  tr.live {
+    background: green;
+    color: white;
+  }
+}
+
+.post-id {
+  width: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  border: 2px solid gray;
+}

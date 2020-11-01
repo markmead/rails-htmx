@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   validates :title, length: { in: 5..50 }
   validates :body, length: { in: 20..200 }, if: :body_present?
 
+  default_scope { order(title: :asc) }
+
   def invalid?
     !valid?
   end
