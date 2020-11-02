@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HtmxRails</title>
+    <title>Rails HTMX</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'https://unpkg.com/htmx.org@0.3.0' %>
+
+    <%= yield :head %>
   </head>
 
   <body>
-    <%= yield %>
+    <main class="container py-8">
+      <div class="bg-blue-600 text-white text-center">
+        <%= notice %>
+      </div>
+      <div class="bg-red-600 text-white text-center">
+        <%= alert %>
+      </div>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

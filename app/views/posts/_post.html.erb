@@ -1,13 +1,28 @@
-<tr>
-  <td class="post-id">
-    <%= label_tag "post_ids_#{post.id}", post.id %>
-    <%= check_box_tag "post_ids[]", post.id, nil, id: "post_ids_#{post.id}" %>
+<tr class="bg-white">
+  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+    <%= check_box_tag "post_ids[]", post.id, nil, id: "post_ids_#{post.id}", class: 'form-checkbox w-5 h-5' %>
   </td>
-  <td><%= post.title %></td>
-  <td><%= post.body %></td>
-  <td <%= html_attributes(class: :live) if post.live? %>>
-    <%= post.live? %>
+  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+    <%= post.title %>
   </td>
-  <td><%= link_to 'Edit', edit_post_path(post) %></td>
-  <td><%= link_to 'Destroy', post, method: :delete %></td>
+  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+    <%= post.body.truncate(40) %>
+  </td>
+  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+    <% if post.live? %>
+      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+        Live
+      </span>
+    <% else %>
+      <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+        Draft
+      </span>
+    <% end %>
+  </td>
+  <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+    <%= link_to 'Edit', edit_post_path(post), class: 'text-indigo-600 hover:text-indigo-900' %>
+  </td>
+  <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
+    <%= link_to 'Delete', post, method: :delete, class: 'text-indigo-600 hover:text-indigo-900' %>
+  </td>
 </tr>

@@ -1,6 +1,16 @@
-<h1>Editing Post</h1>
+<%= content_for :head do %>
+  <meta name="turbolinks-visit-control" content="reload" />
+<% end %>
 
-<%= render 'form', post: @post %>
+<section class="space-y-8">
+  <h1 class="text-3xl font-extrabold">
+    Edit Post
+  </h1>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+  <%= render 'form', post: @post %>
+
+  <div class="relative z-0 inline-flex shadow-sm rounded-md">
+    <%= link_to 'Show', @post, class: 'relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100' %>
+    <%= link_to 'Back', posts_path, class: '-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100' %>
+  </div>
+</section>

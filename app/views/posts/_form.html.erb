@@ -1,6 +1,6 @@
-<%= form_with model: post, local: true, html: { 'hx-target': 'this', 'hx-swap': 'outerHTML' } do |form| %>
+<%= form_with model: post, local: true, html: { 'hx-target': 'this', 'hx-swap': 'outerHTML', class: 'space-y-4' } do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation">
+    <div>
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
@@ -12,22 +12,22 @@
   <% end %>
 
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, { 'hx-post': posts_path } %>
+  <div class="space-y-1">
+    <%= form.label :title, class: 'block text-sm uppercase font-medium text-gray-600' %>
+    <%= form.text_field :title, { 'hx-post': posts_path, class: 'form-input w-full' } %>
   </div>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, { 'hx-post': posts_path } %>
+  <div class="space-y-1">
+    <%= form.label :body, class: 'block text-sm uppercase font-medium text-gray-600' %>
+    <%= form.text_area :body, { 'hx-post': posts_path, class: 'form-textarea w-full', rows: 4 } %>
   </div>
 
-  <div class="field">
-    <%= form.label :live %>
-    <%= form.check_box :live %>
+  <div class="inline-flex">
+    <%= form.check_box :live, class: 'form-checkbox w-5 h-5' %>
+    <%= form.label :live, class: 'block text-sm uppercase font-medium text-gray-600 ml-1.5' %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Submit", disabled: post.invalid? %>
+    <%= form.submit "Submit", disabled: post.invalid?, class: 'inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo' %>
   </div>
 <% end %>
