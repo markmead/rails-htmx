@@ -1,21 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 .field_with_errors {
   input,
   textarea {
-    border: 2px solid red;
+    @apply border-red-500;
   }
 }
 
 .field_without_errors {
   input,
   textarea {
-    border: 2px solid green;
+    @apply border-green-500;
   }
-}
-
-.live {
-  background: green;
-  color: white;
-  padding: 2px;
 }
 
 .htmx-settling {
@@ -23,25 +21,11 @@
     transition: 1s ease-in;
   }
 
-  td.draft {
-    background: red;
-    color: white;
+  tr.draft {
+    @apply bg-red-500 text-white;
   }
 
   tr.live {
-    background: green;
-    color: white;
+    @apply bg-green-500 text-white;
   }
 }
-
-.post-id {
-  width: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2px;
-  border: 2px solid gray;
-}
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
